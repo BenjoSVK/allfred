@@ -9,7 +9,7 @@ function MyComponent() {
     fetch('/api/people')
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Network response was not ok, try again later.');
         }
         return console.log(data), response.json();
       })
@@ -35,10 +35,9 @@ function MyComponent() {
   return (
     <div>
       <h1>{data.title}</h1>
-      <p>{data.body}
-      </p>
+      <p>{data.body}</p>
     </div>
   );
-}
+  }
 
 export default MyComponent;
