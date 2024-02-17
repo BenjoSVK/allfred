@@ -18,7 +18,7 @@ function MyComponent() {
         // console.log(results); // Logs the entire 'results' array
         // results.forEach(item => console.log(item)); // Logs each item in the 'results' array
         setData(jsonData);
-        console.log(jsonData); // For debugging purposes
+        console.log(jsonData.results); // For debugging purposes
       })
       .catch((error) => {
         setError(error); // Handle any errors
@@ -40,9 +40,10 @@ function MyComponent() {
   return (
     <div>
       {data.results.map((item, index) => (
-        <div key={index}>
-          <h1>{item.name || 'Name not available'}</h1>
-        </div>
+       <div key={index.toString()}>
+       <p> {index + 1} : {item.name || 'Name not available'}</p>
+       <img src={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} alt={item.name}></img>
+     </div>
       ))}
     </div>
   );
