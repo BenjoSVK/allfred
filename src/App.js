@@ -6,7 +6,7 @@ function MyComponent() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/api/people/1')
+    fetch('/api/people/')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok, try again later.');
@@ -14,6 +14,9 @@ function MyComponent() {
         return response.json();
       })
       .then((jsonData) => {
+        // const results = jsonData.results; // Assuming 'results' is an array in your JSON data
+        // console.log(results); // Logs the entire 'results' array
+        // results.forEach(item => console.log(item)); // Logs each item in the 'results' array
         setData(jsonData);
         console.log(jsonData); // For debugging purposes
       })
@@ -36,10 +39,13 @@ function MyComponent() {
   // Display the name if it exists in the fetched data
   return (
     <div>
-      <h1>{data?.birth_year || 'Name not available'}</h1>
-      <p>{data?.body}</p>
+      {data.results.map((item, index) => (
+        <div key={index}>
+          <h1>{item.name || 'Name not available'}</h1>
+        </div>
+      ))}
     </div>
   );
-  }
+}
 
 export default MyComponent;
