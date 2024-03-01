@@ -1,4 +1,7 @@
 body {
+  background-color: #272b30;
+  color: #ffffff;
+  display: block;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -6,8 +9,77 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* .top {
+  font-size: 25px;
+  margin: 25px 0 25px 0;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
 }
+.search_bar {
+  border-style: none;
+}
+.menu {
+  justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 25vh);
+}
+.this > img {
+  width: 18vh;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 80%;
+  height: 80%;
+}
+.border_full {
+  border-radius: 7px;
+} */
+/* 
+.menu-column {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 25vh);
+  width: 100%;
+}  */
+/*
+.this0,
+.this1,
+.this2,
+.this3,
+.this4,
+.this5,
+.this6,
+.this7,
+.this8,
+.this9{
+  align-self: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 80%;
+  height: 80%;
+  display: block;
+  width: 80%;
+  color: #000000;
+}
+.this0 > p,
+.this1 > p,
+.this2 > p,
+.this3 > p,
+.this4 > p,
+.this5 > p,
+.this6 > p,
+.this7 > p,
+.this8 > p,
+.this9 > p{
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  justify-content: center;
+  text-align: center;
+  width: 80%;
+  background-color: #ffffff;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5px;
+} */

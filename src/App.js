@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { SearchBar } from './components/SearchBar.jsx';
+import { Headline } from './components/Headline.jsx';
+import { Filter } from './components/Filter.jsx';
+import './App.css';
+import { Container, Card, CardBody, CardFooter, Heading, Image, Divider, Grid, Spacer, Flex } from '@chakra-ui/react';
 
-function MyComponent() {
+
+function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,14 +15,11 @@ function MyComponent() {
     fetch('/api/people/')
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok, try again later.');
+          throw new Error('Network response was not ok, please try again later.');
         }
         return response.json();
       })
       .then((jsonData) => {
-        // const results = jsonData.results; // Assuming 'results' is an array in your JSON data
-        // console.log(results); // Logs the entire 'results' array
-        // results.forEach(item => console.log(item)); // Logs each item in the 'results' array
         setData(jsonData);
         console.log(jsonData.results); // For debugging purposes
       })
@@ -39,14 +42,41 @@ function MyComponent() {
   // Display the name if it exists in the fetched data
   return (
     <div>
-      {data.results.map((item, index) => (
-       <div key={index.toString()}>
-       <p> {index + 1} : {item.name || 'Name not available'}</p>
-       <img src={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} alt={item.name}></img>
-     </div>
-      ))}
+      <Container wd='100%'>
+        <Flex>
+        <SearchBar />
+        <Spacer />
+        <Headline />
+        <Filter />
+        </Flex>
+      </Container>
+        <Grid templateColumns='repeat(5, 2fr)' gap={6}>
+          {data.results.map((item, id) => (
+            <Card
+              maxW='sm'
+              bg='grey.600'>
+              <CardBody>
+                {/* <div key={index.toString()} /* className={`this`}> */}
+                <Image
+                  objectFit='cover'
+                  src={`https://starwars-visualguide.com/assets/img/characters/${id + 1}.jpg`}
+                  alt={item.name}
+                  borderRadius='lg'>
+                </Image>
+                <Divider />
+                <CardFooter>
+                  <Heading
+                    size='md'>
+                    {item.name || 'Name not available'}
+                  </Heading>
+                </CardFooter>
+                {/* </div> */}
+              </CardBody>
+            </Card>
+          ))}
+        </Grid>
     </div>
   );
 }
 
-export default MyComponent;
+export default App;
