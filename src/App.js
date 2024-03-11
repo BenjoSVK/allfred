@@ -1,9 +1,7 @@
+import { Card, CardBody, CardFooter, Heading, Image, Divider, Grid, Box } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
-import { SearchBar } from './components/SearchBar.jsx';
-import { Headline } from './components/Headline.jsx';
-import { Filter } from './components/Filter.jsx';
+import Navbar from './containers/Navbar/Navbar';
 import './App.css';
-import { Container, Card, CardBody, CardFooter, Heading, Image, Divider, Grid, Spacer, Flex } from '@chakra-ui/react';
 
 
 function App() {
@@ -41,15 +39,8 @@ function App() {
 
   // Display the name if it exists in the fetched data
   return (
-    <div>
-      <Container wd='100%'>
-        <Flex>
-        <Headline />
-        <Spacer />
-        <SearchBar />
-        <Filter />
-        </Flex>
-      </Container>
+    <Box>
+      <Navbar />
         <Grid 
         templateColumns='repeat(5, 2fr)' 
         gap={6}>
@@ -77,7 +68,7 @@ function App() {
             </Card>
           ))}
         </Grid>
-    </div>
+    </Box>
   );
 }
 

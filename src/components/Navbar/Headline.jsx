@@ -1,7 +1,6 @@
 import { Heading } from '@chakra-ui/react'
-import React from 'react'
 
-export const Headline = () => {
+const Headline = () => {
   return (
     <div>
       <Heading>
@@ -10,3 +9,4 @@ export const Headline = () => {
     </div>
   )
 }
+export default Headline
