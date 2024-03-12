@@ -1,12 +1,13 @@
-import { Heading } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 
 const Headline = () => {
   return (
-    <div>
+    <Box
+    pl='5px'>
       <Heading>
         StartWars
       </Heading>
-    </div>
+    </Box>
   )
 }
 export default Headline

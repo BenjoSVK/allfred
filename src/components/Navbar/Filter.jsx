@@ -1,6 +1,11 @@
+import { HamburgerIcon } from '@chakra-ui/icons'
 import {
+    IconButton,
     Menu,
     MenuButton,
+    MenuList,
+    MenuItem,
+    MenuGroup
 } from '@chakra-ui/react'
 
 const Filter = () => {
@@ -8,12 +13,19 @@ const Filter = () => {
         <div>
             <Menu>
                 <MenuButton
-                    // as={IconButton}
-                    // aria-label='Options'
-                    // // icon={<HamburgerIcon />}
-                    // variant='outline'
-                    >
+                    as={IconButton}
+                    aria-label='Options'
+                    icon={<HamburgerIcon />}
+                    variant='outline'
+                    borderRadius='5px'>
                 </MenuButton>
+                <MenuList>
+                    <MenuGroup title='Filter'>
+                    <MenuItem>Option 1</MenuItem>
+                    <MenuItem>Option 2</MenuItem>
+                    <MenuItem>Option 3</MenuItem>
+                    </MenuGroup>
+                </MenuList>
             </Menu>
         </div>
     )

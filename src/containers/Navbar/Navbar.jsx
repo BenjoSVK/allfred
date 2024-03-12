@@ -1,15 +1,14 @@
-import { Headline, Filter, SearchBar } from '../../components'
+import { Headline, SearchBar } from '../../components'
 import { Flex, Box, Spacer } from '@chakra-ui/react'
 
 export default function Navbar() {
     return (
         <Box wd='100%'
-            py='5px'
-            px='5px'>
+            pt='15px'
+            px='20px'>
             <Flex>
                 <Headline />
                 <Spacer />
-                <Filter />
                 <SearchBar />
             </Flex>
         </Box>

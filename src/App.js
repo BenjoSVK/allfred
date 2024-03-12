@@ -1,8 +1,19 @@
-import { Card, CardBody, CardFooter, Heading, Image, Divider, Grid, Box } from '@chakra-ui/react';
-import React, { useState, useEffect } from 'react';
-import Navbar from './containers/Navbar/Navbar';
-import './App.css';
-
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Heading,
+  Image,
+  Grid,
+  Box,
+  Button,
+  Spacer,
+  Flex,
+} from "@chakra-ui/react";
+import { ViewIcon } from "@chakra-ui/icons";
+import React, { useState, useEffect } from "react";
+import Navbar from "./containers/Navbar/Navbar";
+import "./App.css";
 
 function App() {
   const [data, setData] = useState(null);
@@ -10,10 +21,12 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/api/people/')
+    fetch("/api/people/")
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok, please try again later.');
+          throw new Error(
+            "Network response was not ok, please try again later."
+          );
         }
         return response.json();
       })
@@ -41,33 +54,66 @@ function App() {
   return (
     <Box>
       <Navbar />
-        <Grid 
-        templateColumns='repeat(5, 2fr)' 
-        gap={6}>
+      <Flex justify="center">
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(4, 1fr)",
+            xl: "repeat(5, 1fr)",
+          }}
+          gap={6}
+          px="25px"
+          py="15px"
+        >
           {data.results.map((item, id) => (
             <Card
-              maxW='sm'
-              bg='grey.600'>
+              maxW="sm"
+              bg="white"
+              key={id.toString()}
+              borderRadius="xl"
+              borderBottom="8px"
+              borderColor="blackAlpha.300"
+              overflow="hidden"
+            >
               <CardBody>
-                {/* <div key={index.toString()} /* className={`this`}> */}
                 <Image
-                  objectFit='cover'
-                  src={`https://starwars-visualguide.com/assets/img/characters/${id + 1}.jpg`}
+                  src={`https://starwars-visualguide.com/assets/img/characters/${
+                    id + 1
+                  }.jpg`}
                   alt={item.name}
-                  borderRadius='lg'>
-                </Image>
-                <Divider />
-                <CardFooter>
+                  fit='cover'
+                  borderRadius="md"
+                  roundedBottom="md"
+                  maxW={{
+                    base: "100%",
+                    xl: "100%",
+                  }}
+                ></Image>
+                <CardFooter px="0" alignItems="center" py="0" paddingTop="10px">
                   <Heading
-                    size='md'>
-                    {item.name || 'Name not available'}
+                    flexWrap="wrap"
+                    size="md"
+                    pr="5px"
+                    alignItems="center"
+                  >
+                    {item.name || "Name not available"}
                   </Heading>
+                  <Spacer />
+                  <Button
+                    leftIcon={<ViewIcon />}
+                    variant="ghost"
+                    colorScheme="blackAlpha"
+                    size="md"
+                    iconSpacing="0"
+                    rounded="full"
+                  />
                 </CardFooter>
-                {/* </div> */}
               </CardBody>
             </Card>
           ))}
         </Grid>
+      </Flex>
     </Box>
   );
 }
